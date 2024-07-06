@@ -12,6 +12,7 @@ struct WeatherDayView: View {
     var dayOfWeek: String
     var imageName: String
     var degrees: Int
+    var isNight: Bool
     
     var body: some View {
             VStack {
@@ -19,8 +20,9 @@ struct WeatherDayView: View {
                 .foregroundStyle(.white)
                 
                 Image(systemName: "\(imageName)")
-                .renderingMode(.original)
+                .symbolRenderingMode(.hierarchical)
                 .resizable()
+                .foregroundColor(isNight ? .black : .white)
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 40, height: 40)
                 .aspectRatio(contentMode: .fill)
